@@ -12,13 +12,10 @@ public class KehadiranGuru {
         Kehadiran = input.nextInt();
 
         if (Kehadiran >= 75) {
-            System.out.println(namaGuru + " hadir dengan baik.");
-        } else if (Kehadiran >= 50) {
-            System.out.println(namaGuru + " hadir dengan cukup.");
-        } else {
-            System.out.println(namaGuru + " perlu meningkatkan kehadirannya.");
-        }
-
+            System.out.println(" Data lengkap.");
+        } else if (Kehadiran <= 5) {
+            System.out.println(" ERROR, data kurang lengkap.");
+       
     }    
-
+    }
 }
