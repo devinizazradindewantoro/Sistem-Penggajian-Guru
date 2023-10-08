@@ -23,8 +23,7 @@ public class SistemPenggajian {
                 userIndex = i;
                 break;
             }
-        }
-        
+        } 
         if (userIndex == -1) {
             System.out.println("Username atau password salah. Program berhenti.");
             return;
