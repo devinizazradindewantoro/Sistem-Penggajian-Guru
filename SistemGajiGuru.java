@@ -4,6 +4,7 @@ public class SistemGajiGuru {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
+        //Input
         System.out.print("Masukkan nama guru: ");
         String nama = scanner.nextLine();
 
