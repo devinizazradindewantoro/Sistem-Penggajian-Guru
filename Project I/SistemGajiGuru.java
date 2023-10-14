@@ -3,7 +3,9 @@ import java.util.Scanner;
 public class SistemGajiGuru {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        int total = 0, counter = 0;
 
+        
         //Input
         System.out.print("Masukkan nama guru: ");
         String nama = scanner.nextLine();
@@ -28,6 +30,10 @@ public class SistemGajiGuru {
 
         double gajiPokok = 0;
         double pajak = 0;
+        
+
+        //Perulangan
+        
 
         if (jabatan.equalsIgnoreCase("PNS")) {
             if (golongan == 1) {
@@ -52,15 +58,18 @@ public class SistemGajiGuru {
         } else {
             System.out.println("Jabatan yang Anda masukkan salah.");
         }
-
-        double gajiBersih = gajiPokok - pajak;
-        
+      
+    
         System.out.println(" MENGHITUNG GAJI KARYAWAN ");
         System.out.println(" ======================== ");
         System.out.println("Nama: " + nama);
         System.out.println("NIK: " + nik);
         System.out.println("Gaji Pokok: " + gajiPokok);
         System.out.println("Pajak: " + pajak);
-        System.out.println("Gaji Bersih: " + gajiBersih);
-    } 
+        System.out.println("Gaji Bersih: " + gajiPokok);
+
+    }
 }
+            
+            
+        
