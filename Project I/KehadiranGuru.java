@@ -7,7 +7,7 @@ public class KehadiranGuru {
         int Kehadiran;
 
         System.out.print("Masukkan nama guru: ");
-        namaGuru = input.nextLine();
+        input.nextLine();
         System.out.print("Masukkan data kehadiran guru: ");
         Kehadiran = input.nextInt();
 
@@ -17,5 +17,6 @@ public class KehadiranGuru {
             System.out.println(" ERROR, data kurang lengkap.");
        
     }    
+    input.close();
     }
 }

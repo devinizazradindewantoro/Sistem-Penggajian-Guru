@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class GajiGuru {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        int jamKerja, jumlah, golongan, Lembur, lamaKerja, gajiPokok, jamLembur ;
+        int jamKerja, golongan, Lembur, lamaKerja, gajiPokok, jamLembur ;
         float gajiBersih;
         String namaKaryawan;
 
@@ -48,5 +48,7 @@ public class GajiGuru {
         System.out.println("\tGaji Lembur          : "+Lembur);
         System.out.println("\tTunjangan Lama Kerja : "+lamaKerja);
         System.out.println("\tGaji Bersih          : "+gajiBersih);
+
+        input.close();
     }  
 }
