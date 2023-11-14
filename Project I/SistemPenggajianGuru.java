@@ -50,7 +50,7 @@ public class SistemPenggajianGuru {
                 System.out.println("Klik <enter> untuk kembali ke halaman login");
                 sc.nextLine();
             }
-
+            
             System.out.println("-----------------MENU-----------------");
             System.out.println("1. Cek Gaji Guru");
             System.out.println("2. Cek Data Guru");
@@ -58,16 +58,16 @@ public class SistemPenggajianGuru {
             System.out.println("4. Cetak Slip Gaji");
             System.out.println("5. Exit");
             System.out.println("--------------------------------------");
-            System.out.println("Pilihan menu 1/2/3/4/5: ");
+            System.out.print("Pilihan menu 1/2/3/4/5: ");
             int menu = sc.nextInt();
 
-            switch (menu) {
+            switch (menu) { // Jobsheet 5
                 case 1:
                     System.out.print("Masukkan jumlah guru : ");
                     jumlahKaryawan = sc.nextInt();
                     int i = 1;
-                    while (i < jumlahKaryawan) {
-                        for (int k = 1; i <= jumlahKaryawan; k++) {
+                    while (i < jumlahKaryawan) { // Jobsheet 7
+                        for (int k = 1; i <= jumlahKaryawan; k++) { // Jobsheet 11
                             for (int o = 1; o < k; o++) {
                                 System.out.println("\nPilihan status pegawai - (PNS , HONORER)");
                                 sc.nextLine();
@@ -80,7 +80,7 @@ public class SistemPenggajianGuru {
                                 System.out.print("Masukkan golongan ( 1 atau 2 ) : ");
                                 int golongan = sc.nextInt();
                                 i++;
-                                if (statusGuru.equalsIgnoreCase("PNS")) {
+                                if (statusGuru.equalsIgnoreCase("PNS")) { // Jobsheet 6
                                     if (golongan == 1) {
                                         gajiPokok = 4000000;
                                         pajak = 0.500;
@@ -108,13 +108,14 @@ public class SistemPenggajianGuru {
                                     System.out.println("Golongan yang anda masukkan salah");
                                     break;
                                 }
+
                                 System.out.println(" MENGHITUNG GAJI KARYAWAN ");
                                 System.out.println(" ======================== ");
                                 System.out.println("Nama : " + nama);
                                 System.out.println("Jabatan : " + statusGuru);
+                                gajiTotal = gajiPokok - pajak;
                                 System.out.println("gaji pokok : " + gajiPokok);
                                 System.out.println("Gaji total : " + gajiTotal);
-                                gajiTotal = gajiPokok - pajak;
                                 System.out.println("gaji yang diterima adalah : " + gajiTotal);
 
                                 // Tambahkan kode untuk menghitung total gaji dan pajak
@@ -129,7 +130,7 @@ public class SistemPenggajianGuru {
                     break;
 
                 case 2: // Code for handling cek data guru
-                    List<String> namaTeacher = new ArrayList<>();
+                    List<String> namaTeacher = new ArrayList<>(); // Jobsheet 9
                     namaTeacher.add("Devin");
                     namaTeacher.add("Meisy");
                     namaTeacher.add("Rahmalia");
@@ -149,13 +150,12 @@ public class SistemPenggajianGuru {
                     kodeGuru.add(20040414);
                     for (int j = 0; j < namaTeacher.size(); j++) {
                         System.out.println(
-                                "nama guru: " + namaTeacher.get(j) + ", mata pelajaran: " + mataPelajaran.get(j)
-                                        + ", kode guru: " + kodeGuru.get(j));
+                                "nama guru: " + namaTeacher.get(j) + ", mata pelajaran: " + mataPelajaran.get(j) + ", kode guru: " + kodeGuru.get(j));
                     }
                     break;
-
+                    
                 case 3: // Code for handling kehadiran
-                    while (true) {
+                    while (true) { // Jobsheet 10
                         System.out.println("----------KEHADIRAN GURU-----------");
                         System.out.println("1. Devin ");
                         System.out.println("2. Meisy ");
@@ -169,7 +169,7 @@ public class SistemPenggajianGuru {
                         switch (kehadiran) {
                             case 1:
                                 int jumlahTeacher = 0;
-                                int[][] presence = new int[5][20];
+                                int[][] presence = new int[5][4];
                                 System.out.print("Masukkan jumlah guru: ");
                                 jumlahTeacher = sc.nextInt();
                                 for (int p = 0; p < jumlahTeacher; p++) {
@@ -195,6 +195,8 @@ public class SistemPenggajianGuru {
                             case 2:
                             case 3:
                             case 4:
+                            case 5:
+                            case 6:
                                 System.out.println("kembali ke halaman utama");
                                 main(args);
                                 break;
@@ -246,7 +248,7 @@ public class SistemPenggajianGuru {
 
                         System.out.print("Masukkan jumlah tidak hadir: ");
                         jumlahTidakMasukGuru[k] = sc.nextInt();
-                        double potGaji = jumlahTidakMasukGuru[k] * 14400.0;
+                        double PotonganGaji = jumlahTidakMasukGuru[k] * 14400.0;
 
                         // Calculate gaji bersih
                         double gajiClean = gajiPokokGuru[k] - (gajiPokokGuru[k] * pajakGuru[k]) - potonganGaji;

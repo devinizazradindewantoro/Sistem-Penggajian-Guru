@@ -1,8 +1,9 @@
 import java.util.Scanner;
-import java.util.List;
-import java.util.ArrayList;
+import java.util.List; // untuk deklarasi mapel
+import java.util.ArrayList; // untuk list data guru
 
-public class ProyekAkhirGajiGuru {
+public class DemoProyekGajiGuru {
+    // untuk memberi salam
     static void beriSalam() {
         System.out.println("Selamat Datang Di Sistem Penggajian Guru");
         System.out.println("                                        ");
@@ -22,11 +23,11 @@ public class ProyekAkhirGajiGuru {
         int[] jumlahTidakMasukGuru = new int[5];
         double[] gajiBersihGuru = new double[5]; // New array for gaji bersih
 
-        // Deklarasi
+        // deklarasi 
         double pajak = 0, gajiTotal = 0, potonganGaji1 = 0, gajiBersih1 = 0, totalGaji = 0, totalPajak = 0;
         int jumlahKaryawan;
 
-        // Multi Level dapat login sebagai Guru & Admin
+        // Multi level Guru & Admin
         System.out.print("Masukkan sebagai siapa : ");
         String answer = sc.nextLine();
 
@@ -53,6 +54,7 @@ public class ProyekAkhirGajiGuru {
                 sc.nextLine();
             }
 
+            // menu pilihan pada sistem guru
             System.out.println("-----------------MENU-----------------");
             System.out.println("1. Cetak Slip Gaji");
             System.out.println("2. Cek Data Guru");
@@ -65,12 +67,14 @@ public class ProyekAkhirGajiGuru {
 
             switch (menu) {
                 case 1:
+                    // untuk melakukan perulangan guru
                     for (int i = 0; i < 5; i++) {
                         System.out.println("Guru ke-" + (i + 1) + " - " + namaGuru[i]);
                         System.out.print("Masukkan NIP Guru: ");
                         nipGuru[i] = sc.nextInt();
                         sc.nextLine();
 
+                        // memilih golongan dan jabatan
                         System.out.print("Jabatan (PNS/HONORER): ");
                         jabatanGuru[i] = sc.nextLine();
                         System.out.print("Golongan (1/2): ");
@@ -78,11 +82,11 @@ public class ProyekAkhirGajiGuru {
                         System.out.print("Gaji pokok: ");
                         gajiPokokGuru[i] = sc.nextInt();
 
-                        // Calculate pajak based on jabatan and golongan
+                        // menghitung gaji berdasarkan jabatan dan golongan 
                         if (jabatanGuru[i].equalsIgnoreCase("PNS")) {
                             if (golonganGuru[i] == 1) {
                                 pajakGuru[i] = 0.05;
-                                System.out.println("Pajak (Golongan 1): " + (pajakGuru[i] * 100) + "%");
+                                System.out.println("Pajak (Golongan 1): " + (pajakGuru[i] * 100) + "%"); // mengonversi nilai pajak dari desimal menjadi persentase ( dikalikan 100)
                             } else if (golonganGuru[i] == 2) {
                                 pajakGuru[i] = 0.015;
                                 System.out.println("Pajak (Golongan 2): " + (pajakGuru[i] * 100) + "%");
@@ -105,12 +109,12 @@ public class ProyekAkhirGajiGuru {
                             System.out.println("Jabatan yang anda masukkan salah");
                             break;
                         }
-
+                        // Menghitung ketidakhadiran guru, 1400*8jam= 14400
                         System.out.print("Masukkan jumlah tidak hadir: ");
                         jumlahTidakMasukGuru[i] = sc.nextInt();
                         double potonganGaji = jumlahTidakMasukGuru[i] * 14400.0;
 
-                        // Calculate gaji bersih
+                        // Menghitung gaji bersih
                         double gajiBersih = gajiPokokGuru[i] - (gajiPokokGuru[i] * pajakGuru[i]) - potonganGaji;
                         gajiBersihGuru[i] = gajiBersih;
 
@@ -119,7 +123,6 @@ public class ProyekAkhirGajiGuru {
                         System.out.println();
                     }
 
-                    // untuk mencetak struk gaji
                     System.out.println("---------- SLIP GAJI GURU ----------");
                     for (int i = 0; i < 5; i++) {
                         System.out.println("Guru: " + namaGuru[i]);
@@ -130,7 +133,7 @@ public class ProyekAkhirGajiGuru {
                         System.out.println("Pajak: " + (pajakGuru[i] * 100) + "%");
                         System.out.println("Potongan Tidak Hadir: " + jumlahTidakMasukGuru[i] * 14400.0);
                         System.out.println("Gaji Bersih: " + gajiBersihGuru[i]);
-                        System.out.println("      ");
+                        System.out.println(" ");
                     }
                     break;
                 case 2:
@@ -175,7 +178,7 @@ public class ProyekAkhirGajiGuru {
                         switch (kehadiran) {
                             case 1:
                                 int jumlahTeacher = 0;
-                                int[][] presence = new int[5][20];
+                                int[][] presence = new int[5][4];
                                 System.out.print("Masukkan jumlah guru: ");
                                 jumlahTeacher = sc.nextInt();
                                 for (int p = 0; p < jumlahTeacher; p++) {
@@ -214,7 +217,7 @@ public class ProyekAkhirGajiGuru {
                     System.out.print("Masukkan jumlah guru : ");
                     jumlahKaryawan = sc.nextInt();
                     int i = 1;
-                    while (i < jumlahKaryawan) { // Jobsheet 7
+                    while (i < jumlahKaryawan) { // nested loop
                         for (int k = 1; i <= jumlahKaryawan; k++) { // Jobsheet 11
                             for (int o = 1; o < k; o++) {
                                 System.out.println("\nPilihan status pegawai - (PNS , HONORER)");
@@ -283,6 +286,7 @@ public class ProyekAkhirGajiGuru {
                     System.out.println("Pilihan tidak valid.");
                     break;
             }
+            // Login sebagai admin
         } else if (answer.equals("Admin")) {
 
             String[] username = { "Devin", "Meisy", "Rahmalia" };
@@ -305,7 +309,7 @@ public class ProyekAkhirGajiGuru {
                 System.out.println("Klik <enter> untuk kembali ke halaman login");
                 sc.nextLine();
             }
-
+            // tampilan menu pada halaman admin
             System.out.println("-----------------MENU-----------------");
             System.out.println("1. Lihat daftar guru");
             System.out.println("2. Tambah guru");
