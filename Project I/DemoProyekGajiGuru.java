@@ -337,6 +337,7 @@ public class DemoProyekGajiGuru {
 
         } else
             System.out.println("Pilihan anda salah.");
+
         sc.close();
     }
 }
