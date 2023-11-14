@@ -1,16 +1,7 @@
 import java.util.Scanner;
-import java.util.List; // untuk deklarasi mapel
-import java.util.ArrayList; // untuk list data guru
 
 public class DemoProyekGajiGuru {
-    // untuk memberi salam
-    static void beriSalam() {
-        System.out.println("Selamat Datang Di Sistem Penggajian Guru");
-        System.out.println("                                        ");
-    }
-
     public static void main(String[] args) {
-        beriSalam();
         Scanner sc = new Scanner(System.in);
 
         // Deklarasi array untuk cetak slip gaji
@@ -23,7 +14,7 @@ public class DemoProyekGajiGuru {
         int[] jumlahTidakMasukGuru = new int[5];
         double[] gajiBersihGuru = new double[5]; // New array for gaji bersih
 
-        // deklarasi 
+        // deklarasi
         double pajak = 0, gajiTotal = 0, potonganGaji1 = 0, gajiBersih1 = 0, totalGaji = 0, totalPajak = 0;
         int jumlahKaryawan;
 
@@ -33,34 +24,18 @@ public class DemoProyekGajiGuru {
 
         // Login sebagai Guru
         if (answer.equals("Guru")) {
-            String[] username = { "Devin", "Meisy", "Rahmalia", "Belqis", "Aqila" };
-            String[][] password = { { "20040417" }, { "20040607" }, { "20050228" }, { "20040415" }, { "20040414" } };
-            System.out.print("Masukkan username : ");
-            sc.nextLine();
-            System.out.print("Masukkan password : ");
-            sc.nextLine();
-            boolean loginSuccessful = false;
-            for (int i = 0; i < username.length; i++) {
-                if (username[i].equals(username) && password[i].equals(password[i][0])) {
-                    loginSuccessful = true;
-                    break;
-                }
-            }
-            if (!loginSuccessful) {
-                System.out.println("Login berhasil");
-            } else {
-                System.out.println("Login gagal!");
-                System.out.println("Klik <enter> untuk kembali ke halaman login");
-                sc.nextLine();
-            }
 
             // menu pilihan pada sistem guru
-            System.out.println("-----------------MENU-----------------");
-            System.out.println("1. Cetak Slip Gaji");
-            System.out.println("2. Cek Data Guru");
-            System.out.println("3. Cek Kehadiran Guru");
-            System.out.println("4. Cek Gaji Guru");
-            System.out.println("5. Exit");
+            System.out.println("--------------------------------------");
+            System.out.println("|                                    |");
+            System.out.println("|                MENU                |");
+            System.out.println("|                                    |");
+            System.out.println("--------------------------------------");
+            System.out.println("|       1. Cetak Slip Gaji           |");
+            System.out.println("|       2. Cek Data Guru             |");
+            System.out.println("|       3. Cek Kehadiran Guru        |");
+            System.out.println("|       4. Cek Gaji Guru             |");
+            System.out.println("|       5. Exit                      |");
             System.out.println("--------------------------------------");
             System.out.print("Pilihan menu 1/2/3/4/5: ");
             int menu = sc.nextInt();
@@ -82,11 +57,11 @@ public class DemoProyekGajiGuru {
                         System.out.print("Gaji pokok: ");
                         gajiPokokGuru[i] = sc.nextInt();
 
-                        // menghitung gaji berdasarkan jabatan dan golongan 
+                        // menghitung gaji berdasarkan jabatan dan golongan
                         if (jabatanGuru[i].equalsIgnoreCase("PNS")) {
                             if (golonganGuru[i] == 1) {
                                 pajakGuru[i] = 0.05;
-                                System.out.println("Pajak (Golongan 1): " + (pajakGuru[i] * 100) + "%"); // mengonversi nilai pajak dari desimal menjadi persentase ( dikalikan 100)
+                                System.out.println("Pajak (Golongan 1): " + (pajakGuru[i] * 100) + "%");
                             } else if (golonganGuru[i] == 2) {
                                 pajakGuru[i] = 0.015;
                                 System.out.println("Pajak (Golongan 2): " + (pajakGuru[i] * 100) + "%");
@@ -123,62 +98,54 @@ public class DemoProyekGajiGuru {
                         System.out.println();
                     }
 
-                    System.out.println("---------- SLIP GAJI GURU ----------");
+                    System.out.println("-------------------------------------- SLIP GAJI GURU --------------------------------------------------");
+                    System.out.println("| Nama Guru |     NIP    |   Jabatan  | Golongan | Gaji Pokok | Pajak | Potongan Tidak Hadir | Gaji Bersih |");
+                    System.out.println("|-----------|------------|------------|----------|------------|-------|----------------------|-------------|");
                     for (int i = 0; i < 5; i++) {
-                        System.out.println("Guru: " + namaGuru[i]);
-                        System.out.println("NIP: " + nipGuru[i]);
-                        System.out.println("Jabatan: " + jabatanGuru[i]);
-                        System.out.println("Golongan: " + golonganGuru[i]);
-                        System.out.println("Gaji Pokok: " + gajiPokokGuru[i]);
-                        System.out.println("Pajak: " + (pajakGuru[i] * 100) + "%");
-                        System.out.println("Potongan Tidak Hadir: " + jumlahTidakMasukGuru[i] * 14400.0);
-                        System.out.println("Gaji Bersih: " + gajiBersihGuru[i]);
-                        System.out.println(" ");
+                        System.out.println(String.format("| %-9s | %-10s | %-9s | %-9s | %-10s | %-5s | %-15.2f | %-11s |",
+                                                        namaGuru[i], nipGuru[i], jabatanGuru[i], golonganGuru[i], gajiPokokGuru[i],
+                                                        (pajakGuru[i] * 100) + "%", jumlahTidakMasukGuru[i] * 14400.0, gajiBersihGuru[i]));
                     }
+                    System.out.println("---------------------------------------------------------------------------------------------------------");
+
                     break;
                 case 2:
                     // Code for handling cek data guru
-                    List<String> namaTeacher = new ArrayList<>(); // Jobsheet 9
-                    namaTeacher.add("Devin");
-                    namaTeacher.add("Meisy");
-                    namaTeacher.add("Rahmalia");
-                    namaTeacher.add("Belqis");
-                    namaTeacher.add("Aqila");
-                    List<String> mataPelajaran = new ArrayList<>();
-                    mataPelajaran.add("Bahasa Inggris");
-                    mataPelajaran.add("Akuntansi");
-                    mataPelajaran.add("Seni Budaya");
-                    mataPelajaran.add("Matematika");
-                    mataPelajaran.add("Bahasa Indonesia");
-                    List<Integer> kodeGuru = new ArrayList<>();
-                    kodeGuru.add(20040417);
-                    kodeGuru.add(20040607);
-                    kodeGuru.add(20050528);
-                    kodeGuru.add(20040415);
-                    kodeGuru.add(20040414);
-                    for (int j = 0; j < namaTeacher.size(); j++) {
-                        System.out.println(
-                                "nama guru: " + namaTeacher.get(j) + ", mata pelajaran: " + mataPelajaran.get(j)
-                                        + ", kode guru: " + kodeGuru.get(j));
-                    }
-                    break;
+                    String[][] dataGuru = {
+                        { "A001", "Devin", "PNS", "1", "4000000" },
+                        { "A002", "Meisy", "PNS", "1", "4000000" },
+                        { "A003", "Rahmalia", "PNS", "2", "5000000" },
+                        { "B001", "Belqis", "HONORER", "2", "2500000" },
+                        { "B002", "Aqila", "HONORER", "1", "1000000" }
+                };
+
+                System.out.println("-----------------------------------------------------------------------------");
+                System.out.println("| ID Guru | Nama Guru |       Jabatan     | Golongan |      Gaji Pokok      |");
+                System.out.println("-----------------------------------------------------------------------------");
+
+                for (int i = 0; i < dataGuru.length; i++) {
+                System.out.printf("| %-7s | %-9s | %-17s | %-8s | Rp %-17s |\n",
+                    dataGuru[i][0], dataGuru[i][1], dataGuru[i][2], dataGuru[i][3], dataGuru[i][4]);
+                }
+
+                System.out.println("-----------------------------------------------------------------------------");
+    
                 case 3:
                     // Code for handling kehadiran
                     while (true) { // Jobsheet 10
-                        System.out.println("----------KEHADIRAN GURU-----------");
-                        System.out.println("1. Devin ");
-                        System.out.println("2. Meisy ");
-                        System.out.println("3. Rahmalia ");
-                        System.out.println("4. Belqis ");
-                        System.out.println("5. Aqila ");
-                        System.out.println("6. Exit ");
-                        System.out.println("-----------------------------------");
-                        System.out.print("Pilih nama guru 1/2/3/4/5/6 : ");
+                        System.out.println("--------------------------------------");
+                        System.out.println("|             1. Devin               |");
+                        System.out.println("|             2. Meisy               |");
+                        System.out.println("|             3. Rahmalia            |");
+                        System.out.println("|             4. Belqis              |");
+                        System.out.println("|             5. Aqila               |");
+                        System.out.println("--------------------------------------");
+                        System.out.print("Pilih nama guru 1/2/3/4/5 : ");
                         int kehadiran = sc.nextInt();
                         switch (kehadiran) {
                             case 1:
                                 int jumlahTeacher = 0;
-                                int[][] presence = new int[5][4];
+                                int[][] presence = new int[5][20];
                                 System.out.print("Masukkan jumlah guru: ");
                                 jumlahTeacher = sc.nextInt();
                                 for (int p = 0; p < jumlahTeacher; p++) {
@@ -289,33 +256,17 @@ public class DemoProyekGajiGuru {
             // Login sebagai admin
         } else if (answer.equals("Admin")) {
 
-            String[] username = { "Devin", "Meisy", "Rahmalia" };
-            String[][] password = { { "20040417" }, { "20040607" }, { "20050228" } };
-            System.out.print("Masukkan username : ");
-            sc.nextLine();
-            System.out.print("Masukkan password : ");
-            sc.nextLine();
-            boolean loginSuccessful = false;
-            for (int i = 0; i < username.length; i++) {
-                if (username[i].equals(username) && password[i].equals(password[i][0])) {
-                    loginSuccessful = true;
-                    break;
-                }
-            }
-            if (!loginSuccessful) {
-                System.out.println("Login berhasil");
-            } else {
-                System.out.println("Login gagal!");
-                System.out.println("Klik <enter> untuk kembali ke halaman login");
-                sc.nextLine();
-            }
             // tampilan menu pada halaman admin
-            System.out.println("-----------------MENU-----------------");
-            System.out.println("1. Lihat daftar guru");
-            System.out.println("2. Tambah guru");
-            System.out.println("3. Ubah gaji guru");
-            System.out.println("4. Hapus guru");
-            System.out.println("5. Keluar");
+            System.out.println("--------------------------------------");
+            System.out.println("|                                    |");
+            System.out.println("|                MENU                |");
+            System.out.println("|                                    |");
+            System.out.println("--------------------------------------");
+            System.out.println("|       1. Lihat daftar guru         |");
+            System.out.println("|       2. Tambah guru               |");
+            System.out.println("|       3. Ubah gaji guru            |");
+            System.out.println("|       4. Hapus guru                |");
+            System.out.println("|       5. Keluar                    |");
             System.out.println("--------------------------------------");
             System.out.println("Pilihan menu 1/2/3/4/5: ");
             int pilihan = sc.nextInt();
@@ -332,6 +283,7 @@ public class DemoProyekGajiGuru {
                 case 5:
 
                 default:
+                System.out.println("Error 404");
                     break;
             }
 
