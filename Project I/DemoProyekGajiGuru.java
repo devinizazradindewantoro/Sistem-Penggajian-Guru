@@ -98,15 +98,16 @@ public class DemoProyekGajiGuru {
                         System.out.println();
                     }
 
-                    System.out.println("-------------------------------------- SLIP GAJI GURU --------------------------------------------------");
+                    System.out.println("------------------------------------------- SLIP GAJI GURU -------------------------------------------------");
                     System.out.println("| Nama Guru |     NIP    |   Jabatan  | Golongan | Gaji Pokok | Pajak | Potongan Tidak Hadir | Gaji Bersih |");
                     System.out.println("|-----------|------------|------------|----------|------------|-------|----------------------|-------------|");
                     for (int i = 0; i < 5; i++) {
-                        System.out.println(String.format("| %-9s | %-10s | %-9s | %-9s | %-10s | %-5s | %-15.2f | %-11s |",
+                        System.out.println(String.format("| %-9s | %-10s | %-10s | %-8s | %-10s | %-5s | %-20.2f | %-11s |",
                                                         namaGuru[i], nipGuru[i], jabatanGuru[i], golonganGuru[i], gajiPokokGuru[i],
                                                         (pajakGuru[i] * 100) + "%", jumlahTidakMasukGuru[i] * 14400.0, gajiBersihGuru[i]));
                     }
-                    System.out.println("---------------------------------------------------------------------------------------------------------");
+                    System.out.println("------------------------------------------------------------------------------------------------------------");
+                    
 
                     break;
                 case 2:
