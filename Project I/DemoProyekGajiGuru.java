@@ -308,7 +308,7 @@ public class DemoProyekGajiGuru {
 
         } else
             System.out.println("Pilihan anda salah.");
-
+        // menutup scanner
         sc.close();
     }
 }
