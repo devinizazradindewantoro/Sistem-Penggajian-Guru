@@ -14,7 +14,7 @@ public class DemoProyekGajiGuru {
         System.out.print("Masukkan sebagai siapa : ");
         String answer = sc.nextLine();
 
-        // Login sebagai Guru
+        // Login sebagai Admin
         if (answer.equals("Admin")) {
             boolean login = false;
 
@@ -37,7 +37,7 @@ public class DemoProyekGajiGuru {
                 }
             } while (!login);
 
-            // menu pilihan pada sistem guru
+            // menu pilihan pada sistem admin
             System.out.println("--------------------------------------");
             System.out.println("|                                    |");
             System.out.println("|                MENU                |");
@@ -145,10 +145,10 @@ public class DemoProyekGajiGuru {
                     System.out.println("Pilihan tidak valid.");
                     break;
             }
-            // Login sebagai admin
+            // Login sebagai Guru
         } else if (answer.equals("Guru")) {
 
-            // tampilan menu pada halaman admin
+            // tampilan menu pada halaman Guru
             System.out.println("--------------------------------------");
             System.out.println("|                                    |");
             System.out.println("|                MENU                |");
@@ -156,7 +156,7 @@ public class DemoProyekGajiGuru {
             System.out.println("--------------------------------------");
             System.out.println("|       1. Input kategori            |");
             System.out.println("|       2. Slip gaji                 |");
-            System.out.println("|       3. Pelaporan bulanan         |");
+            System.out.println("|       3. Pelaporan absensi         |");
             System.out.println("|       4. Pelaporan riwayat gaji    |");
             System.out.println("|       5. Keluar                    |");
             System.out.println("--------------------------------------");
