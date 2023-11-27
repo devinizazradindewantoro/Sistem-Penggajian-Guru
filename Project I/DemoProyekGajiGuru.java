@@ -82,43 +82,144 @@ public class DemoProyekGajiGuru {
 
                 case 3:
                     // Update data guru
-                    // Code for handling kehadiran
-                    while (true) { // Jobsheet 10
-                        System.out.println("--------------------------------------");
-                        System.out.println("|             1. Devin               |");
-                        System.out.println("|             2. Meisy               |");
-                        System.out.println("|             3. Rahmalia            |");
-                        System.out.println("|             4. Belqis              |");
-                        System.out.println("|             5. Aqila               |");
-                        System.out.println("--------------------------------------");
-                        System.out.print("Pilih nama guru 1/2/3/4/5 : ");
-                        int kehadiran = sc.nextInt();
-                        switch (kehadiran) {
+                    static String[] namaGuru = {"Devin", "Meisy", "Rahmalia", "Belqis", "Aqila"};
+                    static int[] NIPGuru = {20040417, 20040418, 20040419, 20040420, 20040421};
+                    static String[] jabatanGuru = {"PNS", "PNS", "Honorer", "Honorer", "PNS"};
+                    static int[] golonganGuru = {1, 2, 1, 2, 1};
+                    static int[] gajiPokokGuru = {4000000, 5000000, 1000000, 2500000, 4000000};
+                    static double[] pajakGuru = {0.005, 0.0015, 0.002, 0.005, 0.005};
+
+                    public static void main(String[] args) {
+                        Scanner scanner = new Scanner(System.in);
+
+                        // Menampilkan menu
+                        System.out.println("Menu Update Data Guru:");
+                        System.out.println("1. Tambah Data Guru");
+                        System.out.println("2. Ubah Data Guru");
+                        System.out.print("Pilih menu (1/2): ");
+                        int menu = scanner.nextInt();
+
+                        switch (menu) {
                             case 1:
-                                int jumlahTeacher = 0;
-                                int[][] presence = new int[5][20];
-                                System.out.print("Masukkan jumlah guru: ");
-                                jumlahTeacher = sc.nextInt();
-                                for (int p = 0; p < jumlahTeacher; p++) {
-                                    for (int j = 0; j < 20; j++) {
-                                        presence[p][j] = 0;
-                                    }
-                                }
-                                for (int p = 0; p < jumlahTeacher; p++) {
-                                    for (int j = 0; j < 20; j++) {
-                                        System.out.print(
-                                                "Masukkan kehadiran guru ke-" + (p + 1) + " hari ke-" + (j + 1) + ": ");
-                                        presence[p][j] = sc.nextInt();
-                                    }
-                                }
-                                for (int p = 0; p < jumlahTeacher; p++) {
-                                    int jumlahPresence = 0;
-                                    for (int j = 0; j < 20; j++) {
-                                        jumlahPresence += presence[p][j];
-                                    }
-                                    System.out.println(
-                                            "Jumlah kehadiran guru ke-" + (p + 1) + " adalah " + jumlahPresence);
-                                }
+                                tambahDataGuru(scanner);
+                                break;
+                            case 2:
+                                ubahDataGuru(scanner);
+                                break;
+                            default:
+                                System.out.println("Menu tidak valid.");
+                        }
+                    }
+                static void tambahDataGuru(Scanner scanner) {
+                        System.out.print("Masukkan Nama Guru: ");
+                        String nama = scanner.next();
+                        System.out.print("Masukkan NIP Guru: ");
+                        int nip = scanner.nextInt();
+                        System.out.print("Masukkan Jabatan Guru (PNS/Honorer): ");
+                        String jabatan = scanner.next();
+                        System.out.print("Masukkan Golongan Guru (1/2): ");
+                        int golongan = scanner.nextInt();
+                        System.out.print("Masukkan Gaji Pokok Guru: ");
+                        int gajiPokok = scanner.nextInt();
+                        System.out.print("Masukkan Pajak Guru: ");
+                        double pajak = scanner.nextDouble();
+
+                        // Memperluas array
+                        namaGuru = tambahArray(namaGuru, nama);
+                        NIPGuru = tambahArray(NIPGuru, nip);
+                        jabatanGuru = tambahArray(jabatanGuru, jabatan);
+                        golonganGuru = tambahArray(golonganGuru, golongan);
+                        gajiPokokGuru = tambahArray(gajiPokokGuru, gajiPokok);
+                        pajakGuru = tambahArray(pajakGuru, pajak);
+
+                        System.out.println("Data Guru berhasil ditambahkan.");
+                        cetakDataGuru();
+                     }
+                    
+                    static void ubahDataGuru(Scanner scanner) {
+                    cetakDataGuru();
+                    System.out.print("Pilih nomor guru yang ingin diubah: ");
+                    int nomorGuru = scanner.nextInt();
+
+                    if (nomorGuru < 1 || nomorGuru > namaGuru.length) {
+                        System.out.println("Nomor guru tidak valid.");
+                        return;
+                     }
+
+                    System.out.println("Data Guru yang dipilih:");
+                    System.out.println("1. Nama: " + namaGuru[nomorGuru - 1]);
+                    System.out.println("2. NIP: " + NIPGuru[nomorGuru - 1]);
+                    System.out.println("3. Jabatan: " + jabatanGuru[nomorGuru - 1]);
+                    System.out.println("4. Golongan: " + golonganGuru[nomorGuru - 1]);
+                    System.out.println("5. Gaji Pokok: " + gajiPokokGuru[nomorGuru - 1]);
+                    System.out.println("6. Pajak: " + pajakGuru[nomorGuru - 1]);
+
+                    System.out.print("Pilih nomor data yang ingin diubah: ");
+                    int nomorData = scanner.nextInt();
+
+                    System.out.print("Masukkan nilai baru: ");
+                    switch (nomorData) {
+                        case 1:
+                            namaGuru[nomorGuru - 1] = scanner.next();
+                            break;
+                        case 2:
+                            NIPGuru[nomorGuru - 1] = scanner.nextInt();
+                            break;
+                        case 3:
+                            jabatanGuru[nomorGuru - 1] = scanner.next();
+                            break;
+                        case 4:
+                            golonganGuru[nomorGuru - 1] = scanner.nextInt();
+                            break;
+                        case 5:
+                            gajiPokokGuru[nomorGuru - 1] = scanner.nextInt();
+                            break;
+                        case 6:
+                            pajakGuru[nomorGuru - 1] = scanner.nextDouble();
+                            break;
+                        default:
+                        System.out.println("Nomor data tidak valid.");
+                        return;
+                }
+
+                System.out.println("Data Guru berhasil diubah.");
+                cetakDataGuru();
+            }
+
+            static void cetakDataGuru() {
+                System.out.println("Data Guru:");
+                for (int i = 0; i < namaGuru.length; i++) {
+                    System.out.println((i + 1) + ". Nama: " + namaGuru[i] + ", NIP: " + NIPGuru[i] + ", Jabatan: " +
+                            jabatanGuru[i] + ", Golongan: " + golonganGuru[i] + ", Gaji Pokok: " + gajiPokokGuru[i] +
+                            ", Pajak: " + (pajakGuru[i] * 100) + "%");
+                }
+            }
+
+            // Fungsi untuk menambahkan elemen baru ke dalam array
+            static String[] tambahArray(String[] array, String nilaiBaru) {
+                String[] newArray = new String[array.length + 1];
+                System.arraycopy(array, 0, newArray, 0, array.length);
+                newArray[array.length] = nilaiBaru;
+                return newArray;
+            }
+
+            // Fungsi untuk menambahkan elemen baru ke dalam array
+            static int[] tambahArray(int[] array, int nilaiBaru) {
+            int[] newArray = new int[array.length + 1];
+            System.arraycopy(array, 0, newArray, 0, array.length);
+            newArray[array.length] = nilaiBaru;
+            return newArray;
+        }
+
+        // Fungsi untuk menambahkan elemen baru ke dalam array
+        static double[] tambahArray(double[] array, double nilaiBaru) {
+            double[] newArray = new double[array.length + 1];
+            System.arraycopy(array, 0, newArray, 0, array.length);
+            newArray[array.length] = nilaiBaru;
+            return newArray;
+    }
+}
+
                             case 2:
                             case 3:
                             case 4:
@@ -221,77 +322,107 @@ public class DemoProyekGajiGuru {
                     break;
                 case 2:
                     // Slip gaji
-                    System.out.print("Masukkan NIP Guru: ");
-                    int nipGuru = sc.nextInt();
+                    static String[] namaGuru = {"Devin", "Meisy", "Rahmalia", "Belqis", "Aqila"};
+    static String[] jabatanGuru = {"PNS", "PNS", "Honorer", "Honorer", "PNS"};
+    static int[] NIPGuru = {20040417, 20040418, 20040419, 20040420, 20040421};
+    static int[] golonganGuru = {1, 2, 1, 2, 1};
+    static int[] gajiPokokGuru = {4000000, 5000000, 1000000, 2500000, 4000000};
+    static double[] pajakGuru = {0.005, 0.0015, 0.002, 0.005, 0.005};
 
-                    sc.nextLine();
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
-                    System.out.print("Masukkan nama guru: ");
-                    String namaGuru = sc.nextLine();
+        do {
+            // Memilih bulan
+            System.out.print("Masukkan bulan (1-12): ");
+            int bulan = scanner.nextInt();
 
-                    // memilih golongan dan jabatan
-                    System.out.print("Jabatan (PNS/HONORER): ");
-                    String jabatanGuru = sc.nextLine();
-                    System.out.print("Golongan (1/2): ");
-                    int golonganGuru = sc.nextInt();
-                    System.out.print("Gaji pokok: ");
-                    int gajiPokokGuru = sc.nextInt();
+            // Memasukkan nama guru
+            System.out.print("Masukkan nama guru: ");
+            String nama = scanner.next();
 
-                    // menghitung gaji berdasarkan jabatan dan golongan
-                    if (jabatanGuru.equalsIgnoreCase("PNS")) {
-                        if (golonganGuru == 1) {
-                            pajakGuru = 0.05;
-                            System.out.println("Pajak (Golongan 1): " + (pajakGuru * 100) + "%");
-                        } else if (golonganGuru == 2) {
-                            pajakGuru = 0.015;
-                            System.out.println("Pajak (Golongan 2): " + (pajakGuru * 100) + "%");
-                        } else {
-                            System.out.println("Golongan PNS yang anda masukkan salah.");
-                            break;
-                        }
-                    } else if (jabatanGuru.equalsIgnoreCase("HONORER")) {
-                        if (golonganGuru == 1) {
-                            pajakGuru = 0.02;
-                            System.out.println("Pajak (Golongan 1): " + (pajakGuru * 100) + "%");
-                        } else if (golonganGuru == 2) {
-                            pajakGuru = 0.015;
-                            System.out.println("Pajak (Golongan 2): " + (pajakGuru * 100) + "%");
-                        } else {
-                            System.out.println("Golongan honorer yang anda masukkan salah.");
-                            break;
-                        }
-                    } else {
-                        System.out.println("Jabatan yang anda masukkan salah");
-                        break;
-                    }
-                    // Menghitung ketidakhadiran guru, 1400*8jam= 14400
-                    System.out.print("Masukkan jumlah tidak hadir: ");
-                    int jumlahTidakMasukGuru = sc.nextInt();
-                    double potonganGaji = jumlahTidakMasukGuru * 14400.0;
+            // Memasukkan NIP guru
+            System.out.print("Masukkan NIP guru: ");
+            int nip = scanner.nextInt();
 
-                    // Menghitung gaji bersih
-                    double gajiBersih = gajiPokokGuru - (gajiPokokGuru * pajakGuru) - potonganGaji;
-                    double gajiBersihGuru = gajiBersih;
-
-                    System.out.println("Total potongan tidak hadir: " + potonganGaji);
-                    System.out.println("Total gaji bersih: " + gajiBersih);
-                    System.out.println();
-
-                    System.out.println(
-                            "------------------------------------------- SLIP GAJI GURU -------------------------------------------------");
-                    System.out.println(
-                            "| Nama Guru |     NIP    |   Jabatan  | Golongan | Gaji Pokok | Pajak | Potongan Tidak Hadir | Gaji Bersih |");
-                    System.out.println(
-                            "|-----------|------------|------------|----------|------------|-------|----------------------|-------------|");
-
-                    System.out.println(String.format(
-                            "| %-9s | %-10s | %-10s | %-8s | %-10s | %-5s | %-20.2f | %-11s |",
-                            namaGuru, nipGuru, jabatanGuru, golonganGuru, gajiPokokGuru,
-                            (pajakGuru * 100) + "%", jumlahTidakMasukGuru * 14400.0, gajiBersihGuru));
-
-                    System.out.println(
-                            "------------------------------------------------------------------------------------------------------------");
+            // Mencari indeks guru berdasarkan NIP
+            int indexGuru = -1;
+            for (int i = 0; i < NIPGuru.length; i++) {
+                if (NIPGuru[i] == nip) {
+                    indexGuru = i;
                     break;
+                }
+            }
+
+            // Validasi guru ditemukan
+            if (indexGuru == -1) {
+                System.out.println("Guru tidak ditemukan.");
+                return;
+            }
+
+            // Menampilkan informasi guru
+            System.out.println("Informasi Guru:");
+            System.out.println("Nama: " + namaGuru[indexGuru]);
+            System.out.println("NIP: " + NIPGuru[indexGuru]);
+            System.out.println("Jabatan: " + jabatanGuru[indexGuru]);
+            System.out.println("Golongan: " + golonganGuru[indexGuru]);
+            System.out.println("Gaji Pokok: " + gajiPokokGuru[indexGuru]);
+            System.out.println("Pajak: " + (pajakGuru[indexGuru] * 100) + "%");
+
+            // Memasukkan input ketidakhadiran
+            System.out.print("Masukkan jumlah ketidakhadiran: ");
+            int jumlahTidakMasuk = scanner.nextInt();
+
+            // Menghitung gaji bersih
+            double gajiBersih = hitungGaji(gajiPokokGuru[indexGuru], pajakGuru[indexGuru], jumlahTidakMasuk);
+
+            // Menampilkan output
+            System.out.println("Total potongan tidak hadir: Rp" + (jumlahTidakMasuk * 14400));
+            System.out.println("Total gaji bersih: Rp" + gajiBersih);
+
+            // Opsi untuk mencetak slip gaji
+            System.out.print("Cetak slip gaji (y/n): ");
+            char cetakSlip = scanner.next().charAt(0);
+
+            if (cetakSlip == 'y' || cetakSlip == 'Y') {
+                printSlipGaji(namaGuru[indexGuru], NIPGuru[indexGuru], jabatanGuru[indexGuru], golonganGuru[indexGuru],
+                        gajiPokokGuru[indexGuru], pajakGuru[indexGuru], jumlahTidakMasuk, gajiBersih);
+            }
+
+            // Opsi untuk melihat pelaporan gaji pada bulan lain atau nama guru lain
+            System.out.print("Ingin melihat pelaporan gaji pada bulan lain? (y/n): ");
+            char lanjut = scanner.next().charAt(0);
+
+            if (lanjut != 'y' && lanjut != 'Y') {
+                break;
+            }
+
+        } while (true);
+    }
+
+    static double hitungGaji(int gajiPokok, double pajak, int jumlahTidakMasuk) {
+        double potonganGaji = jumlahTidakMasuk * 14400.0;
+        return gajibERSIH - (gajiPokok * pajak) - potonganGaji;
+    }
+
+    static void printSlipGaji(String nama, int nip, String jabatan, int golongan, int gajiPokok,
+                              double pajak, int jumlahTidakMasuk, double gajiBersih) {
+        System.out.println("----------------------------------------------------------------------");
+        System.out.println("                           SLIP GAJI GURU                             ");
+        System.out.println("-----------------------------------------------------------------------");
+        System.out.println("Nama: " + nama);
+        System.out.println("NIP: " + nip);
+        System.out.println("Jabatan: " + jabatan);
+        System.out.println("Golongan: " + golongan);
+        System.out.println("Pajak: " + (pajak * 100) + "%");
+        System.out.println("Gaji pokok: Rp" + gajiPokok);
+        System.out.println("Jumlah Tidak Hadir: " + jumlahTidakMasuk);
+        System.out.println("Potongan Tidak Hadir: Rp" + (jumlahTidakMasuk * 14400));
+        System.out.println("Gaji Bersih: Rp" + gajiBersih);
+        System.out.println("----------------------------------------------------------------------");
+    }
+}
+
                 case 3:
                     // Pelaporan semua karyawan bulanan
 
