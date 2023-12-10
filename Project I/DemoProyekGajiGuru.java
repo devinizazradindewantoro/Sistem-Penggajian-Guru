@@ -1,59 +1,43 @@
 import java.util.Scanner;
 
-public class DemoProyekGajiGuru {
+public class FinPro_SistemPenggajianGuru {
+    static String[][] username = { { "Devin" }, { "Meisy" }, { "Rahmalia" } };
+    static String[][] password = { { "20040417" }, { "20040418" }, { "20040419" } };
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+    static int jumlahPengajar = 5;
+    static String[] nama = new String[jumlahPengajar];
+    static int[] nip = new int[jumlahPengajar];
+    static String[] jabatan = new String[jumlahPengajar];
+    static int[] golongan = new int[jumlahPengajar];
+    static double[] gajiUtama = new double[jumlahPengajar];
+    static String[] mataPelajaran = new String[jumlahPengajar];
+    static String[] alamat = new String[jumlahPengajar];
+    static String[] pendidikan = new String[jumlahPengajar];
 
-        // deklarasi
-        double pajak = 0, gajiTotal = 0, potonganGaji1 = 0, gajiBersih1 = 0, pajakGuru;
+    static String[] namaGuru = { "Devin", "Meisy", "Rahmalia", "Belqis", "Aqila" };
+    static int[] NIPGuru = { 20040417, 20040418, 20040419, 20040420, 20040421 };
+    static String[] jabatanGuru = { "PNS", "PNS", "Honorer", "Honorer", "PNS" };
+    static int[] golonganGuru = { 1, 2, 1, 2, 1 };
+    static int[] gajiPokokGuru = { 4000000, 5000000, 1000000, 2500000, 4000000 };
+    static double[] pajakGuru = { 0.005, 0.0015, 0.002, 0.005, 0.005 };
 
-        String[][] username = { { "Devin" }, { "Meisy" }, { "Rahmalia" } };
-        String[][] password = { { "20040417" }, { "20040418" }, { "20040419" } };
-        // Multi level Guru & Admin
-        System.out.print("Masukkan sebagai siapa : ");
-        String answer = sc.nextLine();
+    static String[] namaGuru1 = { "Devin", "Meisy", "Rahmalia", "Belqis", "Aqila" };
+    static int[] NIPGuru1 = { 20040417, 20040418, 20040419, 20040420, 20040421 };
+    static String[] jabatanGuru1 = { "PNS", "PNS", "Honorer", "Honorer", "PNS" };
+    static int[] golonganGuru1 = { 1, 2, 1, 2, 1 };
+    static int[][][] absensiGuru = new int[5][12][4]; // Array untuk menyimpan absensi per guru, bulan, dan minggu
 
-        // Login sebagai Admin
-        if (answer.equals("Admin")) {
-            boolean login = false;
+    static String[] namaGuru2 = { "Devin", "Meisy", "Rahmalia", "Belqis", "Aqila" };
+    static String[] jabatanGuru2 = { "PNS", "PNS", "Honorer", "Honorer", "PNS" };
+    static int[] NIPGuru2 = { 20040417, 20040418, 20040419, 20040420, 20040421 };
+    static int[] golonganGuru2 = { 1, 2, 1, 2, 1 };
+    static int[] gajiPokokGuru2 = { 4000000, 5000000, 1000000, 2500000, 4000000 };
+    static double[] pajakGuru2 = { 0.005, 0.0015, 0.002, 0.005, 0.005 };
 
-            do {
-                System.out.print("Masukkan username: ");
-                sc.nextLine();
-                System.out.print("Masukkan password: ");
-                sc.nextLine();
-
-                for (int i = 0; i < username.length; i++) {
-                    for (int j = 0; j < username[i].length; j++)
-                        if (username.equals(username[i][j]) && password.equals(password[i][j])) {
-                            login = true;
-                            break;
-                        }
-                }
-
-                if (!login) {
-                    System.out.println("Username dan password anda salah!");
-                }
-            } while (!login);
-
-            // menu pilihan pada sistem admin
-            System.out.println("--------------------------------------");
-            System.out.println("|                                    |");
-            System.out.println("|                MENU                |");
-            System.out.println("|                                    |");
-            System.out.println("--------------------------------------");
-            System.out.println("|       1. Input data guru           |");
-            System.out.println("|       2. Perhitungan gaji          |");
-            System.out.println("|       3. Update data guru          |");
-            System.out.println("|       4. Pelaporan riwayat gaji    |");
-            System.out.println("|       5. Pencarian                 |");
-            System.out.println("|       6. Keluar                    |");
-            System.out.println("--------------------------------------");
-            System.out.print("Pilihan menu 1/2/3/4/5/6: ");
-            int menu = sc.nextInt();
-
-            switch (menu) {
+    static int jumlahGuru;
+    static String[] namaGuru3 = new String[jumlahGuru];
+    static double[] gajiGuru = new double[jumlahGuru];
+    static boolean[] gajiDitarik = new boolean[jumlahGuru];
                 case 1:
                     // Input data guru ke data master
                     // untuk melakukan perulangan guru
