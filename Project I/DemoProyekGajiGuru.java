@@ -221,7 +221,15 @@ public class FinPro_SistemPenggajianGuru {
 
                 case 5:
                     // fitur pencarian
-                    // Exit the program
+                    System.out.print("Masukkan nama guru: ");
+                    namaGuruCari = sc.nextLine();
+                    sc.nextLine();
+                    // Mencari data guru berdasarkan nama
+                    for (int i = 0; i < namaGuru3.length; i++) {
+                        if (namaGuru3[i].equalsIgnoreCase(namaGuruCari)) {
+                            hasil = i; // Simpan indeks tempat data ditemukan
+                        }
+                    }
                     break;
                 case 6:
                     // Exit the program
