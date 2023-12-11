@@ -217,7 +217,13 @@ public class FinPro_SistemPenggajianGuru {
                     }
                 case 4:
                     // Pelaporan riwayat gaji masing masing admin
-                    // Code for handling slip gaji
+                    static void pelaporan(String namaGuru3[], double gajiGuru[], boolean gajiDitarik[]){
+                    System.out.print("Masukkan Jumlah Guru : ");
+                    jumlahGuru = sc.nextInt();
+                    sc.nextLine();
+
+                    for (int i = 0; i < jumlahGuru; i++){
+                        System.out.println
 
                 case 5:
                     // fitur pencarian
