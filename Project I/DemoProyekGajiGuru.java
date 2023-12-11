@@ -227,19 +227,29 @@ public class DemoProyekGajiGuru {
 
                 case 5:
                     // fitur pencarian
+                Scanner scan = new Scanner(System.in);
                     int hasil = -1;
                     String namaGuruuCari;
 
                     System.out.print("Masukkan nama guru: ");
-                    namaGuruCari = sc.nextLine();
+                    namaGuruCari = scan.nextLine();
                     sc.nextLine();
                     // Mencari data guru berdasarkan nama
-                    for (int i = 0; i < namaGuru3.length; i++) {
-                        if (namaGuru3[i].equalsIgnoreCase(namaGuruCari)) {
+                    for (int i = 0; i < namaGuru1.length; i++) {
+                        if (namaGuru1[i].equalsIgnoreCase(namaGuruCari)) {
                             hasil = i; // Simpan indeks tempat data ditemukan
+                            break;
                         }
                     }
-                    break;
+                        if (hasil != -1){
+                            System.out.println("Nama: " +namaGuru1[hasil]+ ",NIP: " + NIPGuru1[hasil]+ ",Jabatan: " +jabatanGuru1[hasil]+ ", Golongan: " +golonganGuru1[hasil]);
+                        } else {
+                            System.out.println("Data guru dengan nama " +namaGuruCari+"tidak ditemukan. Menampilkan data keseluruhan:");
+                            for (int i = 0; i<namaGuru.length; i++){
+                                 System.out.println("Nama: " +namaGuru1[i] + " (" +NIPGuru1[i] + ") - " +jabatanGuru1[i] + " Gol. " +golonganGuru1[i]);
+                                 continue;
+                        }
+                        break;
                 case 6:
                     // Exit the program
                     main(args);
