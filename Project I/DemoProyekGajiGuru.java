@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class FinPro_SistemPenggajianGuru {
+public class DemoProyekGajiGuru {
     static String[][] username = { { "Devin" }, { "Meisy" }, { "Rahmalia" } };
     static String[][] password = { { "20040417" }, { "20040418" }, { "20040419" } };
 
@@ -21,26 +21,26 @@ public class FinPro_SistemPenggajianGuru {
     static int[] gajiPokokGuru = { 4000000, 5000000, 1000000, 2500000, 4000000 };
     static double[] pajakGuru = { 0.005, 0.0015, 0.002, 0.005, 0.005 };
 
-    static String[] namaGuru1 = { "Devin", "Meisy", "Rahmalia", "Belqis", "Aqila" };
-    static int[] NIPGuru1 = { 20040417, 20040418, 20040419, 20040420, 20040421 };
-    static String[] jabatanGuru1 = { "PNS", "PNS", "Honorer", "Honorer", "PNS" };
-    static int[] golonganGuru1 = { 1, 2, 1, 2, 1 };
-    static int[][][] absensiGuru = new int[5][12][4]; // Array untuk menyimpan absensi per guru, bulan, dan minggu
-
     static String[] namaGuru2 = { "Devin", "Meisy", "Rahmalia", "Belqis", "Aqila" };
-    static String[] jabatanGuru2 = { "PNS", "PNS", "Honorer", "Honorer", "PNS" };
     static int[] NIPGuru2 = { 20040417, 20040418, 20040419, 20040420, 20040421 };
+    static String[] jabatanGuru2 = { "PNS", "PNS", "Honorer", "Honorer", "PNS" };
     static int[] golonganGuru2 = { 1, 2, 1, 2, 1 };
     static int[] gajiPokokGuru2 = { 4000000, 5000000, 1000000, 2500000, 4000000 };
     static double[] pajakGuru2 = { 0.005, 0.0015, 0.002, 0.005, 0.005 };
 
-    static int jumlahGuru;
-    static String[] namaGuru3 = new String[jumlahGuru];
-    static double[] gajiGuru = new double[jumlahGuru];
-    static boolean[] gajiDitarik = new boolean[jumlahGuru];
-                case 1:
-                    // Input data guru ke data master
-                    // untuk melakukan perulangan guru
+    static String[] namaGuru3 = { "Devin", "Meisy", "Rahmalia", "Belqis", "Aqila" };
+    static int[] NIPGuru3 = { 20040417, 20040418, 20040419, 20040420, 20040421 };
+    static String[] jabatanGuru3 = { "PNS", "PNS", "Honorer", "Honorer", "PNS" };
+    static int[] golonganGuru3 = { 1, 2, 1, 2, 1 };
+    static int hasil = -1; // Inisialisasi hasil dengan nilai 1
+    static String namaGuruCari;
+
+    static String[] namaGuru5 = {"Devin", "Meisy", "Rahmalia", "Belqis", "Aqila"};
+    static String[] jabatanGuru5 = {"PNS", "PNS", "Honorer", "Honorer", "PNS"};
+    static int[] NIPGuru5 = {20040417, 20040418, 20040419, 20040420, 20040421};
+    static int[] golonganGuru5 = {1, 2, 1, 2, 1};
+    static int[] gajiPokokGuru5 = {4000000, 5000000, 1000000, 2500000, 4000000};
+    static double[] pajakGuru5 = {0.005, 0.0015, 0.002, 0.005, 0.005};
 
                 case 2:
                     // Perhitungan gaji guru
