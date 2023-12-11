@@ -253,27 +253,23 @@ public class FinPro_SistemPenggajianGuru {
             System.out.println("|                MENU                |");
             System.out.println("|                                    |");
             System.out.println("--------------------------------------");
-            System.out.println("|       1. Input kategori            |");
-            System.out.println("|       2. Slip gaji                 |");
-            System.out.println("|       3. Pelaporan bulanan         |");
-            System.out.println("|       4. Pelaporan riwayat gaji    |");
-            System.out.println("|       5. Keluar                    |");
+            System.out.println("|       1. Slip gaji                 |");
+            System.out.println("|       2. Pelaporan bulanan         |");
+            System.out.println("|       3. Pelaporan riwayat gaji    |");
+            System.out.println("|       4. Keluar                    |");
             System.out.println("--------------------------------------");
             System.out.print("Pilihan menu 1-5: ");
             int pilihan = sc.nextInt();
 
             switch (pilihan) {
                 case 1:
-                    // Input kategori / golongan dan gaji
-
-                case 2:
                     // Slip gaji
                     
 
-                case 3:
+                case 2:
                     // Pelaporan semua karyawan bulanan
                    
-                case 4:
+                case 3:
                     // Pelaporan riwayat gaji masing masing guru
                     System.out.print("Masukkan nama guru: ");
                     sc.nextLine();
@@ -307,7 +303,7 @@ public class FinPro_SistemPenggajianGuru {
                         System.out.println("Total gaji: " + totalGaji);
                     }
                     break;
-                case 5:
+                case 4:
                     // Exit the program
                     main(args);
                 default:
