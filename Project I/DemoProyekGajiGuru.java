@@ -429,26 +429,18 @@ static void inputGajiGuru() {
             System.out.println(); // Adding a line break for better readability
         }
     }
-                            case 4:
-                                
-                            case 5:
-                                
-                            case 6:
-                                System.out.println("kembali ke halaman utama");
-                                main(args);
-                                break;
-                            default:
-                        }
-                    }
+
                 case 4:
                     // Pelaporan riwayat gaji masing masing admin
-                    static void pelaporan(String namaGuru3[], double gajiGuru[], boolean gajiDitarik[]){
-                    System.out.print("Masukkan Jumlah Guru : ");
-                    jumlahGuru = sc.nextInt();
-                    sc.nextLine();
-
-                    for (int i = 0; i < jumlahGuru; i++){
-                        System.out.println
+                System.out.println("Riwayat Penarikan Gaji Guru");
+                System.out.println("----------------------------");
+                    for (String slip : history) {
+                        if (slip != null) {
+                                System.out.println(slip);
+                                System.out.println("----------------------------");
+                        }
+                    }
+                    break;
 
                 case 5:
                     // fitur pencarian
@@ -494,7 +486,8 @@ static void inputGajiGuru() {
             System.out.println("|       1. Slip gaji                 |");
             System.out.println("|       2. Pelaporan absensi         |");
             System.out.println("|       3. Pelaporan riwayat gaji    |");
-            System.out.println("|       4. Keluar                    |");
+            System.out.println("|       3. Ganti Akun                |");
+            System.out.println("|       5. Keluar                    |");
             System.out.println("--------------------------------------");
             System.out.print("Pilihan menu 1/2/3/4: ");
             int pilihan = sc.nextInt();
@@ -612,6 +605,9 @@ static void inputGajiGuru() {
                      inputGajiGuru();
                      break;
                 case 4:
+                    loginSuccesful = false;
+                    break;
+                case 5:
                     // Exit the program
                     main(args);
                 default:
