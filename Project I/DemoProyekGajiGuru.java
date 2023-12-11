@@ -221,6 +221,9 @@ public class FinPro_SistemPenggajianGuru {
 
                 case 5:
                     // fitur pencarian
+                    int hasil = -1;
+                    String namaGuruuCari;
+
                     System.out.print("Masukkan nama guru: ");
                     namaGuruCari = sc.nextLine();
                     sc.nextLine();
