@@ -386,50 +386,6 @@ public class DemoProyekGajiGuru {
             return newArray;
     }
 }
-static void inputGajiGuru() {
-        Scanner sc = new Scanner(System.in);
-
-        System.out.print("Masukkan nama guru: ");
-        String namaGuru = sc.nextLine();
-
-        System.out.print("Masukkan NIP guru: ");
-        String NIP = sc.nextLine();
-
-        System.out.print("Masukkan tahun: ");
-        int tahun = sc.nextInt();
-
-        // Membaca data gaji
-        System.out.print("Masukkan gaji pokok: ");
-        int gajiPokok = sc.nextInt();
-
-        System.out.print("Masukkan pajak: ");
-        double tax = sc.nextDouble();
-
-        // Array to store attendance for each month
-        boolean[] hadir = new boolean[12];
-
-        // Input attendance for each month
-        for (int bulan = 0; bulan < 12; bulan++) {
-            System.out.print("Masukkan kehadiran untuk Bulan " + (bulan + 1) + " (true/hadir, false/tidak hadir): ");
-            hadir[bulan] = sc.nextBoolean();
-        }
-
-        for (int bulan = 0; bulan < 12; bulan++) {
-            // Menghitung total gaji berdasarkan kehadiran
-            double totalGaji = hadir[bulan] ? gajiPokok - tax : 0;
-
-            System.out.println("Laporan Gaji Guru - Bulan " + (bulan + 1));
-            System.out.println("Nama: " + namaGuru);
-            System.out.println("NIP: " + NIP);
-            System.out.println("Tahun: " + tahun);
-            System.out.println("Gaji pokok: " + gajiPokok);
-            System.out.println("Pajak: " + tax);
-            System.out.println("Kehadiran Bulan " + (bulan + 1) + ": " + (hadir[bulan] ? "Hadir" : "Tidak Hadir"));
-            System.out.println("Total gaji: " + totalGaji);
-            System.out.println(); // Adding a line break for better readability
-        }
-    }
-
                 case 4:
                     // Pelaporan riwayat gaji masing masing admin
                 System.out.println("Riwayat Penarikan Gaji Guru");
