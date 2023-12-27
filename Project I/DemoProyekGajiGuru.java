@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class ProjectFinal2 {
+public class DemoProyekGajiGuru {
 
     static int jumlahPengajar = 5;
     static String[] nama = new String[jumlahPengajar];
